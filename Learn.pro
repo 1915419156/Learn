@@ -20,9 +20,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h \
-    newspaper.h \
-    reader.h
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui
@@ -36,3 +34,6 @@ QMAKE_CXXFLAGS += -std=c++0x
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
