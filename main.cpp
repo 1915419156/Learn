@@ -22,14 +22,15 @@ int main(int argc, char *argv[])
 //    MainWindow w;
 //    w.show();
 //    return a.exec();
+//    connect(sender,   signal,
+//            receiver, slot);
 
-    QApplication app(argc, argv);
-    QPushButton button("Quit");
-    // QObject::connect(&button, &QPushButton::clicked, &QApplication::quit);
-    QObject::connect(&button, &QPushButton::clicked, [](bool) {
-        qDebug() << "You clicked me!";
-    });
-    button.show();
+    QCoreApplication app(argc, argv);
+    Newspaper newspaper("Newspaper A");
+    Reader reader;
+    QObject::connect(&newspaper, &Newspaper::newPaper,
+                     &reader,    &Reader::receiveNewspaper);
+    newspaper.send();
     return app.exec();
 
 }
